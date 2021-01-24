@@ -38,7 +38,7 @@ namespace AspnetNote.Controllers
                         // 로그인 성공
                         //HttpContext.Session.SetInt32(key, value);
                         HttpContext.Session.SetInt32("USER_LOGIN_KEY", user.UserNo);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Note");
                     }
                 }
                 // 로그인 실패

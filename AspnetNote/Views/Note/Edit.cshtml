@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="row">
-    <form class="form" method="post" asp-controller="Note" asp-action="Edit">
+    <form class="form" method="post" asp-controller="Note" asp-action="EditCommit">
         <div class="">
             <div class="form-group">
                 <label>Title</label>
@@ -20,6 +20,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a class="btn btn-default" asp-controller="Note" asp-action="Index">Cancel</a>
+                <input type="hidden" asp-for="NoteNo" value="@Model.NoteNo">
             </div>
         </div>
     </form>
