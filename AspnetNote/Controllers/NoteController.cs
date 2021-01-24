@@ -82,14 +82,18 @@ namespace AspnetNote.Views.Shared
             return View(model);
         }
         // 게시글 수정
-        public IActionResult Edit()
+        public IActionResult Edit(int noteNo)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
                 // 비로그인
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+            using (var db = new AspnetNoteDbContext())
+            {
+                var note = db.Notes.FirstOrDefault(n => n.NoteNo.Equals(noteNo));
+                return View(note);
+            }
         }
         
         // 게시글 삭제
